@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verificar Nome</title>
+</head>
+<body>
+    <style>
+    #resultado{
+        margin-top: 20px;
+        color: red;
+        position: absolute;
+        top: 170px;
+        left: 40px; 
+        
+        
+    }
+    
+    .button{
+        background: url('fundo2.jpeg');
+        border-bottom-color: white;
+        color: white;
+        border-radius: 10%;
+        position: absolute;
+        top: 120px;
+        left: 120px;
+        
+    }
+      body{
+          
+          font-family: Arial Sans-Serif;
+          
+           background: url('fundo2.jpeg') no-repeat center center fixed;
+          text-align: center;
+          background-size: 380px;
+          
+          
+          
+      } 
+      #formNome{
+         background: url('fundo2.jpeg'); 
+          
+          color: white;
+      }
+
+        
+    </style>
+
+<h2 style="color:white;">Digite uma senha grande</h2>
+
+<form id="formNome">
+  <label for="nome">Digite uma senha:</label><br>
+  <input type="text" id="nome" name="nome"><br>
+  <button class="button" type="submit">Verificar</button>
+</form>
+
+<div id="resultado"></div>
+
+<script>
+document.getElementById("formNome").addEventListener("submit", function(event) {
+  event.preventDefault(); // Impedir que o formulário seja enviado
+  
+  // Lista de nomes
+  var nomes = ['goder',];
+
+  // Verificar se o nome está presente na lista
+  var nomeDigitado = document.getElementById("nome").value;
+  var encontrado = false;
+  for (var i = 0; i < nomes.length; i++) {
+    if (nomeDigitado.toLowerCase() === nomes[i].toLowerCase()) {
+      encontrado = true;
+      break;
+    }
+  }
+  
+  // Exibir resultado
+  var resultadoElemento = document.getElementById("resultado");
+  if (encontrado) {
+    resultadoElemento.innerHTML = "";
+    // Abrir uma nova aba
+    window.open("https://www.example.com", "_blank");
+  } else {
+    resultadoElemento.innerHTML = "O nome não está presente na lista.";
+  }
+});
+</script>
+
+
+</body>
+</html>
